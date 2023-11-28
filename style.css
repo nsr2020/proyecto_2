@@ -1,0 +1,560 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
+
+* {
+  font-family: 'Mukta';
+  color: var(--nsr-color4);
+background-color: var(--nsr-color3);
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+text-decoration: none;
+list-style-type:none;
+
+}
+/*Variables*/
+:root {
+  --nsr-color1: rgb(150, 218, 150);
+  --nsr-color2: black;
+  --nsr-color3: rgb(218, 53, 80);
+  --nsr-color4: white;
+  --nsr-color5: pink;
+  --nsr-color6: rgb(219, 87, 219);
+  --nsr-color7:yellowgreen;
+
+  /*Paddings y Margins*/
+  --nsr-padd1: 10px;
+  --nsr-padd2: 20px;
+  --nsr-padd3: 30px;
+
+  --nsr-bor1: 10px;
+  --nsr-bor2: 20px;
+  --nsr-bor3: 30px;
+
+  /*Background color*/
+  --nsr-bg1: var(var(--nsr-color1));
+
+  /*font size*/
+  --nsr-fsize1: small;
+  --nsr-fsize2: medium;
+  --nsr-fsize3: large;
+  --nsr-fsize4:x-large;
+
+  /*borders*/
+  --nsr-border1: 5px, solid black;
+  /*Border radius*/
+  --nsr-bradius: 5px;
+}
+
+/*DesplegableMenu----------------------------------------------------------------------------------*/
+
+
+
+.babrir{
+  
+  top:65px;
+  right: 15px;
+ border:0;
+ font-size: 25px;
+  opacity:0;
+  visibility: hidden;
+  width: 25px;
+  text-align: center;
+
+}
+/*--------------------------------------------header--------------------------------------------------*/
+
+
+.claseimg{
+  
+  width:125px;
+
+}
+.header{
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: var(--nsr-padd3);
+  border-bottom: 3px solid pink;
+  gap:20px;
+  width: 100%;
+  
+}
+.claseul{
+  width: 50%;
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+.claseh1{
+ text-shadow: black 0.1em 0.1em 0.2em;
+ font-size: 24px;
+ color: var(--nsr-color1);
+ width: 250px;
+}
+.babrir{
+  
+  top:65px;
+  right: 15px;
+ border:0;
+ font-size: 25px;
+  opacity:0;
+  visibility: hidden;
+  width: 25px;
+  text-align: center;
+}
+.header a:hover{
+  color: var(--nsr-color2);
+  
+}
+.claseul a{
+  text-shadow: black 0.1em 0.1em 0.2em
+}
+
+/*--------------------------------------------aside--------------------------------*/
+.main{
+  display: flex;
+  border-bottom: 3px solid pink;
+}
+.aside{
+  width: 175px;
+  padding: 20px;
+ margin-top: 50px;
+ background-color: var(--nsr-color3);
+  
+}
+.container-carrito{
+  width: 100%;
+  height: 50svh;
+  border: 5px solid purple;
+  padding: 20px;
+  border-radius: var(--nsr-bradius);
+  background-color: var(--nsr-color5);
+}
+.carrito {
+  border:0;
+  font-size: larger;
+  background-color: var(--nsr-color5);
+}
+.carrito i{
+  color:var(--nsr-color2);
+  background-color: var(--nsr-color5);
+}
+.contacarro  {
+  background-color: var(--nsr-color5);
+  color:var(--nsr-color2)
+}
+.contacarro{
+  width: 30px;
+  border:0;
+  text-align: center;
+  color:var(--nsr-color2);
+font-size: small;
+  font-weight: bold;
+}
+.container-filtros{
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: stretch;
+  background-color: var(--nsr-color5);
+  
+
+}
+.selectAside{
+  width: 95px;
+  border-radius: var(--nsr-bradius);
+  border: 3px solid purple;
+  margin-top: 25px;
+  background-color: var(--nsr-color5);
+  color: var(--nsr-color2);
+  font-weight: bold;
+}
+.labelAside{
+  width:40px;
+  font-weight: bolder;
+  background-color: var(--nsr-color5);
+  color: var(--nsr-color2);
+  font-size: small;
+  text-decoration: underline;
+  margin-top: 20px;
+}
+.inputAside {
+  width:65px;
+  border: 3px solid purple;
+  border-radius: var(--nsr-bradius);
+  background-color: var(--nsr-color5);
+  color: var(--nsr-color2);
+  font-weight: bold;
+  
+}
+.botonInput{
+  width:30px;
+  height: 30px;
+  display: absolute;
+  top: 0;
+  margin-top: 5px;
+  border: 3px solid purple;
+  background-color: var(--nsr-color1);
+  border-radius: var(--nsr-bradius);
+  color:var(--nsr-color2);
+  font-weight: bold;
+  cursor: pointer;
+}
+.botonAside{
+  width:65px;
+  height: 30px;
+  border-radius: var(--nsr-bradius);
+  border: 3px solid purple;
+  background-color: var(--nsr-color1);
+  color:var(--nsr-color2);
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 30px;
+}
+.botonAside:hover {
+  color:var(--nsr-color1);
+  background-color: var(--nsr-color2);
+  scale: 1.1;
+}
+.botonInput:hover{
+  color:var(--nsr-color1);
+  background-color: var(--nsr-color2);
+  scale: 1.1;
+}
+
+/*---------------------------------------------------------Section-----------------------*/
+.menu{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap:10px;
+  margin-left: 20px;
+  margin-top: 70px;
+  border-bottom: var(--nsr-color5);
+}
+.articulo{
+  display:flex;
+  flex-direction: column;
+  border: 3px solid rgb(3, 71, 3);
+  width:175px;
+  height: 280px;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: var(--nsr-bradius);
+  margin-bottom: 15px;
+  margin-right: 20px;
+}
+.divImg{
+  width:100;
+  border: 3px solid rgb(21, 0, 255);
+  border-radius: var(--nsr-bradius);
+  height: 155px;;
+}
+.img {
+  width:150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.img:hover{
+  scale:1.1;
+}
+.nombre{
+  color:purple;
+  font-size: 15px;
+  font-weight: bold;
+}
+.precio{
+  font-size: 12px;
+}
+.vegano{
+  color:var(--nsr-color2);
+  font-size: 15px;
+  font-weight: bold;
+}
+.botonSelect{
+  border:0;
+  cursor: pointer;
+  
+}
+
+
+/*--------------------------------Comentarios---------------------------------------------------*/
+.comments{
+  display: flex;
+  flex-wrap: wrap;
+justify-content: space-around;
+align-items: center;
+margin-top: 10px;
+border-bottom: 3px solid pink;
+}
+.articulo-review{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap:10px;
+  width: 250px;
+  height: 355px;
+  border: 5px solid black;
+  border-radius: var(--nsr-bradius);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.img-review{
+ width: 155px;
+ height: 155px;
+  object-fit: cover;
+  border-radius: 100%;
+}
+.divImg-review{
+  width: 160px;
+  height: 160px;
+  border: 3px solid green;
+  border-radius: 100%;
+  margin-top: 10px;
+}
+.nombre-review{
+  color: var(--nsr-color2);
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+.valoracion-review{
+  font-size: 14px;
+  font-weight: bold;
+  width: 50%;
+  text-align: center;
+  font-size: 13px;
+  color: var(--nsr-color1);
+  font-style: italic;
+}
+.recomendable-review{
+  text-align: center;
+  color: var(--nsr-color2);
+  font-weight: bold;
+  font-size: large;
+}
+.img-review:hover{
+  scale:1.1;
+}
+/*---------------------------------------------Footer------------------------------------------*/
+.contacts{
+margin-top: 20px;
+width: 100%;
+
+}
+.divcontacts{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap:20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulocontact{
+  color: var(--nsr-color4);
+  text-shadow: black 0.1em 0.1em 0.2em;
+}
+.telefcontact{
+  font-style: italic;
+  color: var(--nsr-color1);
+  font-weight: bold;
+}
+.emailcontact{
+  font-style: italic;
+  color: var(--nsr-color7);
+  font-weight: bold;
+}
+.animacontact{
+  width: 150px;
+  cursor: pointer;
+}
+.animacontact:hover{
+  scale:1.1;
+}
+.tirrss-contact{
+  color: var(--nsr-color2);
+  font-weight: bold;
+  text-transform: uppercase;
+  
+}
+.divrrss{
+  width: 200px;
+  height: 50px;
+  display: flex;
+  gap:15px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 5px solid purple;
+  background-color: var(--nsr-color5);
+  border-radius: var(--nsr-bradius);
+}
+.img-fb, .img-in, .img-tw, .img-yt {
+  width:35px;
+  background-color: var(--nsr-color5);
+  cursor: pointer;
+}
+.img-fb:hover, .img-in:hover, .img-tw:hover, .img-yt:hover{
+  scale:1.1;
+}
+
+
+
+/*----------------------------------------------------------Responsive del navBar-----------------*/
+@media screen and (max-width:760px ){
+
+  .claseul{
+display: none;
+  }
+  .claseh1{
+    font-size: 30px;
+  }
+ 
+  .header{
+   
+    justify-content: start;
+    gap:70px;
+    
+  }
+  .babrir{
+    opacity:1;
+    visibility: visible;
+    cursor: pointer;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    position: absolute;
+    top:48px;
+    
+  }
+
+  .nav-list{
+    position: absolute;
+    top: 0px;
+    right: 0;
+    width: 120px;
+    padding: 3rem;
+    height: 35svh;
+    opacity: 0.9;
+    
+  }
+  .menu-item{
+   position: absolute;
+    top:0;
+    right: 0px;
+    background-color: var(--nsr-color5);
+    height: 35svh;
+    text-align: center;
+    padding: 50px;
+    border-radius: var(--nsr-bradius);
+    left:-100px;
+   
+  }
+  .menu-item a{
+   background-color: pink;
+    font-size: large;
+    font-weight: bolder;
+    color: var(--nsr-color3);
+    
+  }
+  .menu-item i{
+    background-color: pink;
+    color:black;
+  }
+  .bcerrar{
+    position: absolute;
+    top:0;
+    right: 0px;
+    border: 0;
+    font-size: 35px;
+    cursor: pointer;
+    text-shadow: black 0.1em 0.1em 0.2em;
+   
+  }
+ 
+}
+
+@media screen and (max-width:630px){
+  .claseh1{
+    font-size: var(--nsr-fsize4);
+    justify-content: start;
+  }
+  .claseimg{
+    width: 80px;
+  }
+  .header{
+    justify-content: start;
+    gap:45px;
+  }
+  .babrir{
+    top:35px;
+  }
+ 
+}
+@media screen and (max-width:480px){
+  .header{
+    gap: 8px;
+  }
+}
+@media screen and (max-width:400px){
+.claseh1{
+  font-size: var(--nsr-fsize3);
+}
+@media screen and (max-width: 370px){
+  .header{
+    justify-content: start;
+    gap:6px;
+  }
+}
+}
+/*----------------------Responsive del section-------------------*/
+
+@media screen and (max-width: 767px){
+
+  .articulo{
+    width:100px;
+    height: 167px;
+  }
+  .divImg{
+    width:100;
+    height: 80px;;
+  }
+  .img {
+    width:75px;
+    height: 75px;
+  }
+
+  .nombre{
+    font-size: 8px;
+    font-weight: bold;
+    color: var(--nsr-color2);
+    text-transform: uppercase;
+    
+  }
+  .vegano{
+    color:var(--nsr-color2);
+    font-size: 8px;
+    font-weight: bold;
+  }
+
+
+}
+/*-------------------Responsive del footer/Contacto------------------------------*/
+
+@media screen and (max-width: 400px){
+  
+.titulocontact, .telefcontact, .emailcontact, .tirrss-contact{
+ font-size: 11px;
+}
+  
+}
+
+
+
+
+
