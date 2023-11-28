@@ -1,4 +1,5 @@
 import './style.css'
+/* import './style.css' */
 
 const productos = [
   {
@@ -13,7 +14,7 @@ const productos = [
     img: "https://res.cloudinary.com/dnju3aw4b/image/upload/v1700834708/Casa%20de%20comida/Lasa%C3%B1a_de_calabac%C3%ADn_x8qpyt.jpg",
     nombre: "Lasaña Vegetal",
     tipo: "Entrantes",
-    precio: 9,
+    precio: 10,
     vegetariano: true,
     boton:"🛒"
   },
@@ -61,7 +62,7 @@ const productos = [
     img: "https://res.cloudinary.com/dnju3aw4b/image/upload/v1700841048/Casa%20de%20comida/Chipirones_en_su_tinta_con_arroz_kznf1s.jpg",
     nombre: "Arroz con chipirones",
     tipo: "Principales",
-    precio: 11,
+    precio: 10,
     vegetariano: false,
     boton:"🛒"
   },
@@ -84,7 +85,7 @@ const productos = [
   {img: "https://res.cloudinary.com/dnju3aw4b/image/upload/v1700841306/Casa%20de%20comida/WOK_DE_VERDURAS_CON_GAMBAS_Y_NOODLES_DE_ARROZ_receta_saludable_con_un_toque_oriental_cfoyvv.jpg",
     nombre: "Wok de gambas",
     tipo: "Principales",
-    precio: 7,
+    precio: 6,
     vegetariano: true,
     boton:"🛒"
   },
@@ -108,7 +109,7 @@ const productos = [
     img: "https://res.cloudinary.com/dnju3aw4b/image/upload/v1700841497/Casa%20de%20comida/Como_Hacer_Brownie_de_Chocolate_Casero__Receta_Original_-_I_Cake_4_U_jb47a5.jpg",
     nombre: "Brownie de Chocolate",
     tipo: "Postres",
-    precio: 5,
+    precio: 6,
     vegetariano: true,
     boton:"🛒"
   },
@@ -116,7 +117,7 @@ const productos = [
     img: "https://res.cloudinary.com/dnju3aw4b/image/upload/v1700841561/Casa%20de%20comida/Copas_de_2_3_4_o_5_bolas_para_tomar_en_yaqqxq.jpg ",
     nombre: "Surtido de helados",
     tipo: "Postres",
-    precio: 4,
+    precio: 5,
     vegetariano: true,
     boton:"🛒"
   },
@@ -124,7 +125,7 @@ const productos = [
     img: "https://res.cloudinary.com/dnju3aw4b/image/upload/v1700841618/Casa%20de%20comida/Tarta_de_Santiago_-_Megasilvita_fvdiik.jpg",
     nombre: "Tarta de Santiago",
     tipo: "Postres",
-    precio: 4,
+    precio: 5,
     vegetariano: false,
     boton:"🛒"
   },
@@ -132,7 +133,7 @@ const productos = [
     img: "https://res.cloudinary.com/dnju3aw4b/image/upload/v1700841670/Casa%20de%20comida/Los_30_mejores_vinos_Ribera_del_Duero_ba5blb.jpg",
     nombre: "Vino de Rioja",
     tipo: "Vinos",
-    precio: 15,
+    precio: 13,
     vegetariano: true,
     boton:"🛒"
   },
@@ -201,35 +202,60 @@ const contactos =[
     img_yt:"https://res.cloudinary.com/dnju3aw4b/image/upload/v1698927256/youtube_ofzkpo.png"
   }
 ]
-let CONTADOR="";
+const TIPOS = [] //Esto lo creamos para poder hacer una funcion y que los tipos no se repitan en el select
 
-let SELECT = ""
-let VALOR =""
+let SELECT = "";
+let VALOR = 0;
 
-//creamos la funcion filtrar para el cambio del select y la busqueda por precio
-const filtroSelect = () => {
-  const filtered = []
- 
-  for  (const producto of productos){
-    if(SELECT.includes(producto.tipo)){
-     filtered.push(producto)
-    }
+//funcion de duplicado
+const fillTipos = (tipos) =>{
+  TIPOS.splice(0); // limpiamos el array por completo desde la posicion 0
+  for( const tipo of tipos){
+    if(!TIPOS.includes(tipo.tipo)){
+        TIPOS.push(tipo.tipo)
+      }
   }
-  createProductos(filtered)
   
-};
+}
+fillTipos(productos)
+//--------------------------------------filtos para el select para buscar por precio y por cambio de opcion
 
-const filtroPrecio = () => {
-  const filtered =[]
-  for  (const producto of productos){
-    if(producto.preico <= VALOR){
-      filtered.push(producto)
-      console.log(filtered);
-    }
-  }
+
+
+// Función para aplicar filtros dinámicos
+/* const filtroSelect = () => {
+  const filtered = productos.filter(producto => SELECT === '' || SELECT === producto.tipo)
+console.log(filtered);
   createProductos(filtered);
 };
 
+
+const filtroPrecio = () => {
+  const filtered = productos.filter(producto => VALOR === '' || producto.precio <= VALOR);
+  console.log(filtered);
+  createProductos(filtered);
+}; */
+// Función de filtro única
+const filtro = (valor, tipo) => {
+  if (tipo === "select") {
+    const filtered = productos.filter(
+      (producto) => valor === "" || valor === producto.tipo
+    );
+    console.log(filtered);
+    createProductos(filtered);
+  } else if (tipo === "precio") {
+    const filtered = productos.filter(
+      (producto) => valor === "" || producto.precio <= parseInt(valor)
+    );
+    
+    createProductos(filtered);
+  }
+};
+
+
+const filtroSelectAll = () =>{
+  createProductos()
+}
 
 //Funcion para crear el navbar
 const createNavBar = () => {
@@ -294,21 +320,21 @@ babrir.style.display = "flex"
 })
 }
 
-//funcion del aside
 
 
 
+
+//funcion del aside()
 const createAside = () => {
   const contacarro = document.querySelector(".contacarro")
   const divAside = document.querySelector(".container-filtros")
+  const articulo = document.querySelector("articulo")
   const selectAside = document.createElement("select")
-  
-
-  const products = ["Carta","Entrantes","Principales","Postres","Vinos"]
-  const labelAside = document.createElement("label")
+   const labelAside = document.createElement("label")
   const inputAside = document.createElement("input")
   const botonInput = document.createElement("button")
   const botonAside = document.createElement("button")
+
   selectAside.classList.add("selectAside")
   labelAside.classList.add("labelAside")
   inputAside.classList.add("inputAside")
@@ -318,10 +344,17 @@ const createAside = () => {
   labelAside.textContent = "Precio"
   botonInput.textContent = ("🔎")
 
-for( const product of products){
+ // Agregar la opción "Todos" al principio del select
+ const optionTodos = document.createElement("option")
+ optionTodos.value = "Todos"
+ optionTodos.textContent = "Todos"
+ selectAside.appendChild(optionTodos)
+  
+
+for( const tipo of TIPOS){ //DE ESTA FORMA NO SE REPITEN LOS TIPOS EN LAS OPCIONES DEL SELECT
   const option = document.createElement("option")
-  option.value = product
-  option.textContent = product
+  option.value = tipo
+  option.textContent = tipo
 
   selectAside.appendChild(option)
 }
@@ -332,44 +365,48 @@ divAside.appendChild(inputAside)
 divAside.appendChild(botonInput)
 divAside.appendChild(botonAside)
 
+//addEven para limpiar los filtros
+
 botonAside.addEventListener("click", ()=>{
   inputAside.value = ""
   contacarro.value = ""
-  selectAside.value = ""
+  selectAside.value = "Todos"
   createProductos()
-
 })
-
- selectAside.addEventListener("change", (event) =>{
-  SELECT = event.target.value;
+/* selectAside.addEventListener("change", (e) => {
+  SELECT = e.target.value
   filtroSelect()
-  console.log(SELECT);
- })
+}) */
+/* botonInput.addEventListener("click", () => filtroPrecio(inputAside.value)) */
+document.querySelector(".selectAside").addEventListener("change", (event) => {
+  SELECT = event.target.value;
+  if (SELECT === "Todos"){
+    filtroSelectAll()
+  }else{
+  filtro(SELECT, "select")
+  }
+});
 
-  botonInput.addEventListener("click", () =>{
-    VALOR = parseInt(inputAside.value)
-    
-    filtroPrecio()
-   
-  })
-
+/* document.querySelector(".botonInput").addEventListener("click", () => {
+  VALOR = parseInt(document.querySelector(".inputAside").value);
+  filtroPrecio();
+}); */
+document.querySelector(".botonInput").addEventListener("click", () => {
+  const VALOR = document.querySelector(".inputAside").value;
+  filtro(VALOR, "precio");
+});
 
 }
 
-
-
-
-
-
 //funcion para inyectar todos los productos al main
-const createProductos = () => {
+const createProductos = (productosMostrar = productos) => {
 const containerSection = document.querySelector(".menu")
 const contacarro = document.querySelector(".contacarro")
 
 containerSection.innerHTML = ""
 
 
-productos.forEach(function(producto) {
+productosMostrar.forEach(function(producto) {
   
   let articulo = document.createElement("article")
   let divImg = document.createElement("div")
@@ -387,6 +424,7 @@ productos.forEach(function(producto) {
   btn.textContent = producto.boton
 
   articulo.classList.add("articulo")
+  
   divImg.classList.add("divImg")
   img.classList.add("img")
   nombre.classList.add("nombre")
@@ -402,9 +440,8 @@ productos.forEach(function(producto) {
   articulo.appendChild(btn)
   articulo.appendChild(vegano)
   containerSection.appendChild(articulo)
-
   // evenlistener para el contador del carrito
-  btn.addEventListener("click", () => {
+ btn.addEventListener("click", () => {
     
     let valorActual = parseInt(contacarro.value);
     if (!isNaN(valorActual)) {
@@ -417,9 +454,9 @@ productos.forEach(function(producto) {
   });
  
 })
+
 }
 //funcion para inyectar los comentarios de los clientes
-
 const createComments = () => { 
   const containerComments = document.querySelector(".comments")
 reviews.forEach(function(review) {
@@ -529,12 +566,17 @@ const createContacts = () => {
 }
 
 
-
 //Ejecución de funciones
 createNavBar()
 createAside()
-createProductos()
+createProductos(productos)
 createComments()
 createContacts()
+
+
+
+
+
+
 
 
